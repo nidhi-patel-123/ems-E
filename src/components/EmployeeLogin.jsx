@@ -17,7 +17,7 @@ function EmployeeLogin() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3001/employee/login', form);
+      const res = await axios.post('https://ems-backend-jade.vercel.app/employee/login', form);
       sessionStorage.setItem('employeeToken', res.data.token);
       navigate('/');
     } catch (err) {

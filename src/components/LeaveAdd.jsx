@@ -40,7 +40,7 @@ export default function EmployeeLeaves() {
     try {
       setLoading(true);
       const token = sessionStorage.getItem('employeeToken');
-      const { data } = await axios.get("http://localhost:3001/employee/leaves", {
+      const { data } = await axios.get("https://ems-backend-jade.vercel.app/employee/leaves", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(data);
@@ -77,7 +77,7 @@ export default function EmployeeLeaves() {
     try {
       setLoading(true);
       const token = sessionStorage.getItem('employeeToken');
-      await axios.post("http://localhost:3001/employee/leaves", {
+      await axios.post("https://ems-backend-jade.vercel.app/employee/leaves", {
         ...form,
         days,
         description: form.description || '-',
@@ -132,10 +132,10 @@ export default function EmployeeLeaves() {
                   <td className="p-3 border">
                     <span
                       className={`px-3 py-1 rounded-full text-xs ${leave.status === "Approved"
-                          ? "bg-green-100 text-green-700"
-                          : leave.status === "Rejected"
-                            ? "bg-red-100 text-red-700"
-                            : "bg-yellow-100 text-yellow-700"
+                        ? "bg-green-100 text-green-700"
+                        : leave.status === "Rejected"
+                          ? "bg-red-100 text-red-700"
+                          : "bg-yellow-100 text-yellow-700"
                         }`}
                     >
                       {leave.status}

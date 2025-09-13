@@ -73,7 +73,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await fetch("http://localhost:3001/employee/notifications", {
+//       const response = await fetch("https://ems-backend-jade.vercel.app/employee/notifications", {
 //         headers: {
 //           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
 //           'x-user-id': sessionStorage.getItem("employeeId") || '',
@@ -90,7 +90,7 @@
 
 //   const markAsRead = async (id) => {
 //     try {
-//       await fetch(`http://localhost:3001/notifications/${id}/read`, {
+//       await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}/read`, {
 //         method: "PATCH",
 //         headers: {
 //           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -109,7 +109,7 @@
 //   const deleteNotification = async (id) => {
 //     if (window.confirm("Are you sure you want to delete this notification?")) {
 //       try {
-//         const response = await fetch(`http://localhost:3001/notifications/${id}`, {
+//         const response = await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}`, {
 //           method: "DELETE",
 //           headers: {
 //             Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -394,7 +394,7 @@ const Header = ({ userName = "Employee" }) => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch("http://localhost:3001/employee/notifications", {
+      const response = await fetch("https://ems-backend-jade.vercel.app/employee/notifications", {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
           "x-user-id": sessionStorage.getItem("employeeId") || "",
@@ -409,7 +409,7 @@ const Header = ({ userName = "Employee" }) => {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`http://localhost:3001/notifications/${id}/read`, {
+      await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}/read`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -426,7 +426,7 @@ const Header = ({ userName = "Employee" }) => {
   const deleteNotification = async (id) => {
     if (window.confirm("Are you sure you want to delete this notification?")) {
       try {
-        const response = await fetch(`http://localhost:3001/notifications/${id}`, {
+        const response = await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -492,9 +492,8 @@ const Header = ({ userName = "Employee" }) => {
                   notifications.map((note) => (
                     <li
                       key={note._id}
-                      className={`px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600 flex justify-between items-center ${
-                        note.read ? "opacity-50" : ""
-                      }`}
+                      className={`px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm text-gray-600 flex justify-between items-center ${note.read ? "opacity-50" : ""
+                        }`}
                       onClick={() => !note.read && markAsRead(note._id)}
                     >
                       <div className="flex-1">

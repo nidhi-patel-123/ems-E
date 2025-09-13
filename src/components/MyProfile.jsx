@@ -12,8 +12,8 @@ const MyProfile = () => {
     const fetchProfile = async () => {
       try {
         const token = sessionStorage.getItem('employeeToken');
-        const res = await axios.get('http://localhost:3001/employee/profile', {
-          headers: { Authorization: `Bearer ${token}` } ,
+        const res = await axios.get('https://ems-backend-jade.vercel.app/employee/profile', {
+          headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
         setForm(res.data);
@@ -32,7 +32,7 @@ const MyProfile = () => {
     setLoading(true);
     try {
       const token = sessionStorage.getItem('employeeToken');
-      const res = await axios.put('http://localhost:3001/employee/profile', form, {
+      const res = await axios.put('https://ems-backend-jade.vercel.app/employee/profile', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data);

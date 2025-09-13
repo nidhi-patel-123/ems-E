@@ -69,7 +69,7 @@ export default function Setting() {
   const fetchProfile = async () => {
     try {
       const token = sessionStorage.getItem('employeeToken');
-      const { data } = await axios.get("http://localhost:3001/employee/profile", {
+      const { data } = await axios.get("https://ems-backend-jade.vercel.app/employee/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFormData((prev) => ({ ...prev, ...data }));
@@ -87,7 +87,7 @@ export default function Setting() {
     setLoading(true);
     try {
       const token = sessionStorage.getItem('employeeToken');
-      await axios.put("http://localhost:3001/employee/profile", formData, {
+      await axios.put("https://ems-backend-jade.vercel.app/employee/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Profile updated successfully!");
@@ -111,7 +111,7 @@ export default function Setting() {
     try {
       // You need to implement this endpoint in backend for employee password change
       const token = sessionStorage.getItem('employeeToken');
-      await axios.put("http://localhost:3001/employee/change-password", {
+      await axios.put("https://ems-backend-jade.vercel.app/employee/change-password", {
         currentPassword: formData.currentPassword,
         newPassword: formData.newPassword,
       }, {
@@ -150,8 +150,8 @@ export default function Setting() {
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`px-6 py-2 rounded-t-lg font-medium transition-all ${activeTab === tab
-                ? "bg-white shadow text-[#113a69] border border-b-0 border-gray-200"
-                : "text-gray-600 hover:text-[#113a69]"
+              ? "bg-white shadow text-[#113a69] border border-b-0 border-gray-200"
+              : "text-gray-600 hover:text-[#113a69]"
               }`}
           >
             {tab}
@@ -173,7 +173,7 @@ export default function Setting() {
             <InputField label="Email" name="email" type="email" value={formData.email} onChange={handleChange} />
             <InputField label="Mobile" name="mobile" value={formData.mobile} onChange={handleChange} />
             <InputField label="Department" name="department" value={formData.department.name} onChange={handleChange} disabled={true} />
-            <InputField label="Role" name="role" value={formData.role} onChange={handleChange} disabled={true}/>
+            <InputField label="Role" name="role" value={formData.role} onChange={handleChange} disabled={true} />
             <div className="col-span-2">
               <label className="block text-sm font-medium">Address</label>
               <textarea
