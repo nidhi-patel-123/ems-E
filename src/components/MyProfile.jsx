@@ -12,7 +12,7 @@ const MyProfile = () => {
     const fetchProfile = async () => {
       try {
         const token = sessionStorage.getItem('employeeToken');
-        const res = await axios.get('http://localhost:3001/employee/profile', {
+        const res = await axios.get('https://ems-b-ge5b.onrender.com/employee/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(res.data);
@@ -32,7 +32,7 @@ const MyProfile = () => {
     setLoading(true);
     try {
       const token = sessionStorage.getItem('employeeToken');
-      const res = await axios.put('http://localhost:3001/employee/profile', form, {
+      const res = await axios.put('https://ems-b-ge5b.onrender.com/employee/profile', form, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProfile(res.data);
