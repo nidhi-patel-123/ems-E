@@ -40,7 +40,7 @@ export default function EmployeeLeaves() {
     try {
       setLoading(true);
       const token = sessionStorage.getItem('employeeToken');
-      const { data } = await axios.get("https://ems-b-ge5b.onrender.com/employee/leaves", {
+      const { data } = await axios.get("https://ems-b-86xl.onrender.com/employee/leaves", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(data);
@@ -77,7 +77,7 @@ export default function EmployeeLeaves() {
     try {
       setLoading(true);
       const token = sessionStorage.getItem('employeeToken');
-      await axios.post("https://ems-b-ge5b.onrender.com/employee/leaves", {
+      await axios.post("https://ems-b-86xl.onrender.com/employee/leaves", {
         ...form,
         days,
         description: form.description || '-',

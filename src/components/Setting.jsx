@@ -69,7 +69,7 @@ export default function Setting() {
   const fetchProfile = async () => {
     try {
       const token = sessionStorage.getItem('employeeToken');
-      const { data } = await axios.get("https://ems-b-ge5b.onrender.com/employee/profile", {
+      const { data } = await axios.get("https://ems-b-86xl.onrender.com/employee/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setFormData((prev) => ({ ...prev, ...data }));
@@ -87,7 +87,7 @@ export default function Setting() {
     setLoading(true);
     try {
       const token = sessionStorage.getItem('employeeToken');
-      await axios.put("https://ems-b-ge5b.onrender.com/employee/profile", formData, {
+      await axios.put("https://ems-b-86xl.onrender.com/employee/profile", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert("Profile updated successfully!");
@@ -111,7 +111,7 @@ export default function Setting() {
     try {
       // You need to implement this endpoint in backend for employee password change
       const token = sessionStorage.getItem('employeeToken');
-      await axios.put("https://ems-b-ge5b.onrender.com/employee/change-password", {
+      await axios.put("https://ems-b-86xl.onrender.com/employee/change-password", {
         currentPassword: formData.currentPassword,
         newPassword: formData.newPassword,
       }, {

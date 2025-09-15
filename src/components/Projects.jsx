@@ -15,7 +15,7 @@ export default function Projects() {
     setLoading(true);
     try {
       const token = sessionStorage.getItem("employeeToken");
-      const res = await axios.get("https://ems-b-ge5b.onrender.com/employee/projects", {
+      const res = await axios.get("https://ems-b-86xl.onrender.com/employee/projects", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data);

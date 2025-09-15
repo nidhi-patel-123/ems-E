@@ -17,7 +17,7 @@ function EmployeeLogin() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post('https://ems-b-ge5b.onrender.com/employee/login', form);
+      const res = await axios.post('https://ems-b-86xl.onrender.com/employee/login', form);
       sessionStorage.setItem('employeeToken', res.data.token);
       navigate('/');
     } catch (err) {
