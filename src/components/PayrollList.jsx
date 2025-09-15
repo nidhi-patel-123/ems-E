@@ -24,7 +24,7 @@ const Payroll = () => {
     setError(null);
     try {
       const token = sessionStorage.getItem('employeeToken');
-      const { data } = await axios.get("https://ems-backend-jade.vercel.app/employee/payrolls", {
+      const { data } = await axios.get("http://localhost:3001/employee/payrolls", {
         headers: { Authorization: `Bearer ${token}` },
       });
       // Map API response to match table keys
@@ -156,8 +156,8 @@ const Payroll = () => {
                       <td className="py-3 px-6 border-b">
                         <span
                           className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${p.status === "Paid"
-                              ? "bg-[#113a69] text-[#ffffff]"
-                              : "bg-yellow-100 text-yellow-700"
+                            ? "bg-[#113a69] text-[#ffffff]"
+                            : "bg-yellow-100 text-yellow-700"
                             }`}
                         >
                           {p.status}

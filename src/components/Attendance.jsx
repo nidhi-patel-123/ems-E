@@ -13,7 +13,7 @@ export default function Attendance() {
       try {
         const token = sessionStorage.getItem("employeeToken");
         const res = await axios.get(
-          "https://ems-backend-jade.vercel.app/employee/attendance",
+          "http://localhost:3001/employee/attendance",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -44,7 +44,7 @@ export default function Attendance() {
       if (!checkIn) {
         // Check-in
         const res = await axios.post(
-          "https://ems-backend-jade.vercel.app/employee/attendance/checkin",
+          "http://localhost:3001/employee/attendance/checkin",
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -56,7 +56,7 @@ export default function Attendance() {
       } else if (!checkOut) {
         // Check-out
         const res = await axios.post(
-          "https://ems-backend-jade.vercel.app/employee/attendance/checkout",
+          "http://localhost:3001/employee/attendance/checkout",
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -67,7 +67,7 @@ export default function Attendance() {
         ]);
       }
     } catch (err) {
-       setError(err.response?.data?.message || "Action failed");
+      setError(err.response?.data?.message || "Action failed");
     } finally {
       setLoading(false);
     }

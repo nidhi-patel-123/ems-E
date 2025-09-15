@@ -15,7 +15,7 @@ export default function Projects() {
     setLoading(true);
     try {
       const token = sessionStorage.getItem("employeeToken");
-      const res = await axios.get("https://ems-backend-jade.vercel.app/employee/projects", {
+      const res = await axios.get("http://localhost:3001/employee/projects", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data);
@@ -43,8 +43,8 @@ export default function Projects() {
             key={tab}
             onClick={() => setFilter(tab)}
             className={`pb-2 px-2 text-sm md:text-base ${filter === tab
-                ? "border-b-2 border-[#113a69] text-[#113a69] font-semibold"
-                : "text-gray-600 hover:text-[#1b5393]"
+              ? "border-b-2 border-[#113a69] text-[#113a69] font-semibold"
+              : "text-gray-600 hover:text-[#1b5393]"
               }`}
           >
             {tab}
@@ -90,8 +90,8 @@ export default function Projects() {
                     <div className="w-full bg-gray-200 rounded-full h-2.5">
                       <div
                         className={`h-2.5 rounded-full ${project.progress === 100
-                            ? "bg-green-500"
-                            : "bg-orange-400"
+                          ? "bg-green-500"
+                          : "bg-orange-400"
                           }`}
                         style={{ width: `${project.progress}%` }}
                       ></div>
@@ -101,10 +101,10 @@ export default function Projects() {
                   <td className="px-6 py-3">
                     <span
                       className={`px-3 py-1 rounded-full text-xs ${project.status === "Completed"
-                          ? "bg-green-100 text-green-700"
-                          : project.status === "On Hold"
-                            ? "bg-yellow-100 text-yellow-700"
-                            : "bg-blue-100 text-blue-700"
+                        ? "bg-green-100 text-green-700"
+                        : project.status === "On Hold"
+                          ? "bg-yellow-100 text-yellow-700"
+                          : "bg-blue-100 text-blue-700"
                         }`}
                     >
                       {project.status}

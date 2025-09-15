@@ -73,7 +73,7 @@
 
 //   const fetchNotifications = async () => {
 //     try {
-//       const response = await fetch("https://ems-backend-jade.vercel.app/employee/notifications", {
+//       const response = await fetch("http://localhost:3001/employee/notifications", {
 //         headers: {
 //           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
 //           'x-user-id': sessionStorage.getItem("employeeId") || '',
@@ -90,7 +90,7 @@
 
 //   const markAsRead = async (id) => {
 //     try {
-//       await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}/read`, {
+//       await fetch(`http://localhost:3001/notifications/${id}/read`, {
 //         method: "PATCH",
 //         headers: {
 //           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -109,7 +109,7 @@
 //   const deleteNotification = async (id) => {
 //     if (window.confirm("Are you sure you want to delete this notification?")) {
 //       try {
-//         const response = await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}`, {
+//         const response = await fetch(`http://localhost:3001/notifications/${id}`, {
 //           method: "DELETE",
 //           headers: {
 //             Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -394,7 +394,7 @@ const Header = ({ userName = "Employee" }) => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch("https://ems-backend-jade.vercel.app/employee/notifications", {
+      const response = await fetch("http://localhost:3001/employee/notifications", {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
           "x-user-id": sessionStorage.getItem("employeeId") || "",
@@ -409,7 +409,7 @@ const Header = ({ userName = "Employee" }) => {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}/read`, {
+      await fetch(`http://localhost:3001/notifications/${id}/read`, {
         method: "PATCH",
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
@@ -426,7 +426,7 @@ const Header = ({ userName = "Employee" }) => {
   const deleteNotification = async (id) => {
     if (window.confirm("Are you sure you want to delete this notification?")) {
       try {
-        const response = await fetch(`https://ems-backend-jade.vercel.app/notifications/${id}`, {
+        const response = await fetch(`http://localhost:3001/notifications/${id}`, {
           method: "DELETE",
           headers: {
             Authorization: `Bearer ${sessionStorage.getItem("employeeToken")}`,
